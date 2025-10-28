@@ -63,3 +63,9 @@ func (b *Buffer) Resize(maxSize int) {
 		b.buf = nb
 	}
 }
+
+func (b *Buffer) Clear() {
+	b.lock.Lock()
+	b.buf = []byte{}
+	b.lock.Unlock()
+}
